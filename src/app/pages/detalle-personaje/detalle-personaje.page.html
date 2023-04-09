@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
+<ion-header mode="md">
   <ion-toolbar>
-    <ion-title>detalle-personaje</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"> </ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detalle-personaje</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content mode="ios">
+  <div class="glass-content ion-padding">
+    <div class="ion-text-center ion-padding-top" *ngIf="personaje">
+      <ion-avatar>
+        <img [src]="personaje.image" />
+        
+      </ion-avatar>
+      <h1>{{personaje.name}}</h1>
+      <div>Estado: {{personaje.status == 'Alive' ? "Vivo" : "Muerto"}}</div>
+      <ion-item lines="none">
+        <ion-icon slot="start" name="location-outline"></ion-icon>
+        <ion-label> Visto por primera vez: <br /><strong
+          >{{personaje.origin.name}}</strong
+        ></ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon slot="start" name="location-outline"></ion-icon>
+        <ion-label> Visto por ultima vez: <br /><strong
+          >{{personaje.location.name}}</strong
+        ></ion-label>
+      </ion-item>
+      <ion-item lines="none" class="ion-margin-top">
+        <ion-icon slot="start" name="videocam-outline"></ion-icon>
+        <ion-label>Episodio donde aparece</ion-label>
+        <ion-icon slot="end" name="chevron-down"></ion-icon>
+      </ion-item>
+    </div>
+  </div>
 </ion-content>

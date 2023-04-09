@@ -15,6 +15,7 @@ import { RickAndMortyService } from 'src/app/services/rick-and-morty.service';
 })
 export class DetallePersonajePage implements OnInit {
   personajeId: string = ''; //variable que va a almacenar informacion del personaje.
+  personaje=null as any; //variable para trabajar con lo que me devuelve el srv
   constructor(
     private actRoute: ActivatedRoute,
     private rickAndMortySvc: RickAndMortyService
@@ -36,6 +37,7 @@ export class DetallePersonajePage implements OnInit {
       
       next: (res: any) => {
         console.log(res);
+        this.personaje = res;
       },
       error: (error: any) => {
         console.log();
