@@ -39,4 +39,14 @@ export class InicioPage implements OnInit {
       },
     });
   }
+  //buscar personaje por nombre
+  buscarCharacters() {
+    //cada vez que se ejecute la funcion sumamos 1.
+    this.params.page = 1;
+    this.rickAndMortySvc.getCharacter(this.params).subscribe({
+      next: (res: any) => {
+        this.characters=res.results;
+      }
+    });
+  }
 }

@@ -4,9 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content mode="ios">
   <div class="glass-content">
     <ion-grid>
+      <ion-row>
+        <ion-col class="d-flex-center" size="12">
+          <ion-searchbar placeholder="Buscar..." [(ngModel)]="params.name" (ionInput)="buscarCharacters()" [debounce]="250"></ion-searchbar>
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col
           *ngFor="let c of characters"
