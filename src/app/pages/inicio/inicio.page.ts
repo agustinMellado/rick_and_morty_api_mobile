@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RickAndMortyService } from 'src/app/services/rick-and-morty.service';
-import { error } from 'console';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
