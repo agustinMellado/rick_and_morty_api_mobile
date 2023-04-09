@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { RickAndMortyService } from 'src/app/services/rick-and-morty.service';
 
 @Component({
   selector: 'app-inicio',
@@ -12,9 +13,15 @@ import { IonicModule } from '@ionic/angular';
 })
 export class InicioPage implements OnInit {
 
-  constructor() { }
+  chracters:any[]=[];
+  params={} as any;
+  constructor(private rickAndMortySvc:RickAndMortyService) {
+
+   }
 
   ngOnInit() {
+    this.params.page=0;
   }
+  //Obtener personaje
 
 }
