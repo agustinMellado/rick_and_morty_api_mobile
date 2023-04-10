@@ -7,7 +7,11 @@
 </ion-header>
 
 <ion-content mode="ios">
+  
   <div class="glass-content ion-padding">
+    <div *ngIf="!personaje" class="loader">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
     <div class="ion-text-center ion-padding-top" *ngIf="personaje">
       <ion-avatar>
         <img [src]="personaje.image" />
