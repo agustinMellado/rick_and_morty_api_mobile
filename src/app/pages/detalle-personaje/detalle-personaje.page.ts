@@ -15,7 +15,8 @@ import { RickAndMortyService } from 'src/app/services/rick-and-morty.service';
 })
 export class DetallePersonajePage implements OnInit {
   personajeId: string = ''; //variable que va a almacenar informacion del personaje.
-  personaje=null as any; //variable para trabajar con lo que me devuelve el srv
+  personaje=null as any; //variable para trabajar con lo que me devuelve el servicio.
+  episodio:any []=[]; //variable array para almacenar los episodios.
   constructor(
     private actRoute: ActivatedRoute,
     private rickAndMortySvc: RickAndMortyService
@@ -38,10 +39,27 @@ export class DetallePersonajePage implements OnInit {
       next: (res: any) => {
         console.log(res);
         this.personaje = res;
+        //Busca los episodios donde aparece el personaje
+        this.getEpisodio()
       },
       error: (error: any) => {
         console.log();
       }
     })
+  }
+  getEpisodio(){
+    for(let url of this.personaje.episode){
+      this.rickAndMortySvc.getByUrl(url).subscribe({
+      
+        next: (res: any) => {
+          console.log(res)
+          this.episodio.push(res);
+        },
+        error: (error: any) => {
+          console.log();
+        }
+      })
+    }
+    
   }
 }
