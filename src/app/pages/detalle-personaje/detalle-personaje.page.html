@@ -9,9 +9,11 @@
 <ion-content mode="ios">
   
   <div class="glass-content ion-padding">
+  <!-- cargando -->
     <div *ngIf="!personaje" class="loader">
       <ion-spinner name="crescent"></ion-spinner>
     </div>
+    <!-- informacion del personaje-->
     <div class="ion-text-center ion-padding-top" *ngIf="personaje">
       <ion-avatar>
         <img [src]="personaje.image" />
